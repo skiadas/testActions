@@ -14,6 +14,11 @@ jobs:
     permissions:
       id-token: write
     steps:
+      - name: print id
+        env:
+          ID: ${{ github.run_id }}
+        run: |
+          echo $ID
       - name: Download  artifact
         uses: actions/download-artifact@v4
         with:
