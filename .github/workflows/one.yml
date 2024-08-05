@@ -5,11 +5,17 @@ on:
       runId:
         description: "The run-id of the workflow"
         value: $${{ github.run_id }}
+  workflow_dispatch:
 
 jobs:
  upload:
    runs-on: ubuntu-latest
    steps:
+    - name: print id
+      env:
+        ID: ${{ github.run_id }}
+      run: |
+        echo $ID
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
